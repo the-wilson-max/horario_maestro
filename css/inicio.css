@@ -1,0 +1,158 @@
+:root {
+  --primary: #4f8cff;
+  --background: #181c22;
+  --form-bg: #23283b;
+  --border-radius: 18px;
+  --text: #f2f3f7;
+  --muted: #b7bccc;
+  --shadow: 0 8px 40px 0 rgba(61, 80, 30, 0.21);
+  --accent: #6ec1e4;
+}
+
+.main-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.inicio-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 4.2rem 1.5rem 1rem 1.5rem;
+  min-height: 100vh;
+  background: linear-gradient(120deg, #1b2231 0%, #23283b 100%);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.inicio-title {
+  color: var(--primary);
+  font-size: 2.3rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  margin-bottom: 2.7rem;
+  text-shadow: 0 2px 8px #4f8cff28;
+  text-align: center;
+}
+
+.cuadros-container {
+  display: flex;
+  gap: 2.5rem;
+  justify-content: center;
+  align-items: stretch;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.cuadro-info {
+  background: var(--form-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 2.3rem 2.8rem 2.2rem 2.2rem;
+  min-width: 220px;
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  position: relative;
+  overflow: hidden;
+  border: 1.5px solid #31395a55;
+  transition: transform 0.13s, box-shadow 0.13s, background 0.13s;
+}
+.cuadro-info::after {
+  content: "";
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--primary) 0%, #234 100%);
+  opacity: 0.09;
+  border-radius: 50%;
+  z-index: 0;
+}
+.cuadro-info:hover {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: 0 8px 32px #4f8cff44;
+  transform: scale(1.045);
+}
+.icono {
+  font-size: 3.2rem;
+  color: var(--accent);
+  z-index: 1;
+}
+.cuadro-info:hover .icono {
+  color: #fff;
+}
+.cuadro-label {
+  font-size: 1.18rem;
+  color: var(--muted);
+  margin-bottom: 0.55rem;
+  font-weight: 500;
+  z-index: 1;
+}
+.cuadro-info:hover .cuadro-label {
+  color: #e9e9e9;
+}
+.cuadro-dato {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  z-index: 1;
+}
+
+/* Estilos para el cuadro circular de género */
+.porcentaje-genero {
+  margin-top: 2.5rem;
+  align-self: flex-start;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  min-width: 180px;
+  min-height: 210px;
+  justify-content: center;
+  /* Lo pega a la izquierda */
+  margin-left: 0;
+}
+
+.porcentaje-circulo {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+.porcentaje-circulo svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.porcentaje-texto {
+  position: relative;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--text);
+  text-align: center;
+  width: 96px;
+  z-index: 2;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 900px) {
+  .cuadros-container {
+    flex-direction: column;
+    gap: 1.4rem;
+    align-items: stretch;
+  }
+  .porcentaje-genero {
+    align-self: center;
+    margin-top: 2.5rem;
+    margin-left: 0;
+  }
+}

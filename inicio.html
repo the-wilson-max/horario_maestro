@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Inicio - Colegio</title>
+    <link rel="stylesheet" href="css/registro.css" />
+    <link rel="stylesheet" href="css/inicio.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="main-layout">
+      <main class="inicio-content">
+        <h1 class="inicio-title">
+          ¡Bienvenido, <span id="nombreUsuario">Profesor</span>!
+        </h1>
+        <div class="cuadros-container">
+          <div class="cuadro-info">
+            <span class="material-icons icono">schedule</span>
+            <div>
+              <div class="cuadro-label">Hora actual</div>
+              <div id="horaActual" class="cuadro-dato">--:--:--</div>
+            </div>
+          </div>
+          <div class="cuadro-info">
+            <span class="material-icons icono">event</span>
+            <div>
+              <div class="cuadro-label">Fecha</div>
+              <div id="fechaActual" class="cuadro-dato">--/--/----</div>
+            </div>
+          </div>
+          <div class="cuadro-info">
+            <span class="material-icons icono">thermostat</span>
+            <div>
+              <div class="cuadro-label">Temperatura</div>
+              <div id="temperaturaActual" class="cuadro-dato">-- °C</div>
+            </div>
+          </div>
+        </div>
+        <div class="cuadro-info porcentaje-genero">
+          <div class="porcentaje-circulo">
+            <svg width="96" height="96">
+              <circle
+                cx="48"
+                cy="48"
+                r="42"
+                stroke="#444a74"
+                stroke-width="12"
+                fill="none"
+              />
+              <circle
+                id="generoCircle"
+                cx="48"
+                cy="48"
+                r="42"
+                stroke="#4f8cff"
+                stroke-width="12"
+                fill="none"
+                stroke-linecap="round"
+                stroke-dasharray="264"
+                stroke-dashoffset="264"
+              />
+            </svg>
+            <div class="porcentaje-texto" id="generoPorcentaje">--%</div>
+          </div>
+          <div>
+            <div class="cuadro-label">% Masculino / Femenino</div>
+            <div
+              id="generoDetalle"
+              class="cuadro-dato"
+              style="font-size: 1.1rem"
+            >
+              -- / --
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="supabaseClient.js"></script>
+    <script src="js/inicio.js"></script>
+  </body>
+</html>

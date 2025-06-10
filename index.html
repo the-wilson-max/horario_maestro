@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Login Profesores</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="bg-animated"></div>
+    <main class="center-viewport">
+      <form id="loginForm" class="login-form" autocomplete="on">
+        <div class="form-header">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Bitmap_Logo.png"
+            alt="Colegio Logo"
+            class="logo"
+          />
+          <h2>Bienvenido</h2>
+          <p class="subtitle">Inicia sesión para organizar tu horario</p>
+        </div>
+        <div class="form-group">
+          <label for="dni">DNI</label>
+          <input
+            type="text"
+            id="dni"
+            placeholder="Tu DNI"
+            required
+            autocomplete="username"
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Contraseña</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Tu contraseña"
+            required
+            autocomplete="current-password"
+          />
+        </div>
+        <button type="submit" class="btn-primary">Ingresar</button>
+        <div id="loginError" class="error-message"></div>
+        <div class="form-footer">
+          <label for="password">¿No tienes una cuenta?</label>
+          <a href="registro.html" class="link">Registrate</a>
+        </div>
+      </form>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="supabaseClient.js"></script>
+    <script src="server.js"></script>
+  </body>
+</html>

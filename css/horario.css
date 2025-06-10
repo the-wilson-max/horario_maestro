@@ -1,0 +1,331 @@
+:root {
+  --primary: #4f8cff;
+  --background: #181c22;
+  --form-bg: #23283b;
+  --border-radius: 16px;
+  --text: #f2f3f7;
+  --muted: #b7bccc;
+  --shadow: 0 8px 40px 0 rgba(30, 40, 80, 0.13);
+  --recreo: #ffe082;
+  --feriado: #f77;
+  --ausente: #aaa;
+
+  /* Colores para cursos */
+  --color-matematica: #ff8c85;
+  --color-comunicacion: #ffb347;
+  --color-cyt: #7ae67a;
+  --color-ingles: #80bfff;
+  --color-historia: #e491ff;
+  --color-arte: #ffb3de;
+  --color-ef: #6fd3c6;
+  --color-religion: #ffe67a;
+  --color-computacion: #a0aeff;
+  --color-civica: #f7a78c;
+  --color-tutoria: #bdb6ff;
+}
+
+body,
+html {
+  background: var(--background);
+  color: var(--text);
+  margin: 0;
+  font-family: "Inter", Arial, sans-serif;
+}
+
+.horario-layout {
+  max-width: 1100px;
+  margin: 2rem auto;
+  background: var(--form-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 2rem 1.2rem 2.5rem 1.2rem;
+  animation: fadeIn 0.7s cubic-bezier(0.45, 1.14, 0.6, 1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.horario-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  animation: headerAppear 0.6s cubic-bezier(0.4, 1.1, 0.6, 1);
+}
+@keyframes headerAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.horario-header h1 {
+  color: var(--primary);
+  margin: 0;
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 0.02em;
+  text-shadow: 0 3px 16px #4f8cff33;
+}
+.horario-controls {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.horario-controls label {
+  font-size: 1.1rem;
+  color: var(--muted);
+}
+.horario-controls select {
+  margin-left: 0.5rem;
+  padding: 0.2rem 0.7rem;
+  background: #23283b;
+  border-radius: 8px;
+  border: 1px solid #4f8cff44;
+  color: var(--text);
+  transition: box-shadow 0.15s;
+}
+.btn-exportar {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+  box-shadow: 0 2px 18px #4f8cff22;
+  transition: background 0.13s, box-shadow 0.2s;
+}
+.btn-exportar:hover {
+  background: #2656a7;
+  box-shadow: 0 8px 24px #4f8cff33;
+}
+
+.tabla-horario-responsive {
+  overflow-x: auto;
+  border-radius: var(--border-radius);
+  background: #1d232e;
+  box-shadow: 0 2px 18px #23283b33;
+  animation: fadeIn 0.7s cubic-bezier(0.45, 1.14, 0.6, 1);
+}
+
+.tabla-horario {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 800px;
+  background: transparent;
+}
+.tabla-horario th,
+.tabla-horario td {
+  border: 1px solid #26304b;
+  padding: 0.7rem 0.5rem;
+  font-size: 1rem;
+  text-align: center;
+  background: transparent;
+  transition: background 0.3s;
+}
+.tabla-horario th {
+  background: #23283b;
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 1.04rem;
+  letter-spacing: 0.03em;
+}
+.tabla-horario td {
+  background: #23283b;
+  min-width: 120px;
+  position: relative;
+  transition: background 0.35s, box-shadow 0.22s;
+}
+.tabla-horario select,
+.tabla-horario .celda-estado {
+  width: 95%;
+  padding: 0.2rem;
+  border-radius: 5px;
+  border: 1px solid #4f8cff33;
+  background: #222b41;
+  color: var(--text);
+  font-size: 0.97rem;
+  margin-bottom: 0.15rem;
+  transition: box-shadow 0.13s, background 0.2s;
+}
+.celda-estado {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+}
+.celda-estado label {
+  font-size: 0.9rem;
+  color: var(--muted);
+  cursor: pointer;
+}
+.celda-estado input[type="checkbox"] {
+  accent-color: var(--primary);
+}
+
+/* Colores de celdas especiales */
+.celda-recreo {
+  background: var(--recreo) !important;
+  color: #23283b !important;
+  font-weight: 700;
+  animation: highlightRecreo 0.9s cubic-bezier(0.3, 1, 0.4, 1);
+}
+@keyframes highlightRecreo {
+  from {
+    background: #fff7cc;
+  }
+  to {
+    background: var(--recreo);
+  }
+}
+.celda-feriado {
+  background: var(--feriado) !important;
+  color: #fff !important;
+  font-weight: 700;
+  animation: highlightFeriado 0.9s cubic-bezier(0.3, 1, 0.4, 1);
+}
+@keyframes highlightFeriado {
+  from {
+    background: #ffd2d2;
+  }
+  to {
+    background: var(--feriado);
+  }
+}
+.celda-ausente {
+  background: var(--ausente) !important;
+  color: #fff !important;
+  font-weight: 700;
+  animation: highlightAusente 0.9s cubic-bezier(0.3, 1, 0.4, 1);
+}
+@keyframes highlightAusente {
+  from {
+    background: #e2e2e2;
+  }
+  to {
+    background: var(--ausente);
+  }
+}
+
+/* Curso-colores animados */
+.celda-curso-matematica {
+  background: var(--color-matematica) !important;
+  color: #fff !important;
+  animation: popColor 0.5s;
+}
+.celda-curso-comunicacion {
+  background: var(--color-comunicacion) !important;
+  color: #2a2a2a !important;
+  animation: popColor 0.5s;
+}
+.celda-curso-cyt {
+  background: var(--color-cyt) !important;
+  color: #254d25 !important;
+  animation: popColor 0.5s;
+}
+.celda-curso-ingles {
+  background: var(--color-ingles) !important;
+  color: #073a7c !important;
+  animation: popColor 0.5s;
+}
+.celda-curso-historia {
+  background: var(--color-historia) !important;
+  color: #5c2173 !important;
+  animation: popColor 0.5s;
+}
+.celda-curso-arte {
+  background: var(--color-arte) !important;
+  color: #7b2956 !important;
+  animation: popColor 0.5s;
+}
+.celda-curso-ef {
+  background: var(--color-ef) !important;
+  color: #07544d !important;
+  animation: popColor 0.5s;
+}
+.celda-curso-religion {
+  background: var(--color-religion) !important;
+  color: #8a7e1b !important;
+  animation: popColor 0.5s;
+}
+.celda-curso-computacion {
+  background: var(--color-computacion) !important;
+  color: #0b1c4b !important;
+  animation: popColor 0.5s;
+}
+.celda-curso-civica {
+  background: var(--color-civica) !important;
+  color: #6e2b17 !important;
+  animation: popColor 0.5s;
+}
+.celda-curso-tutoria {
+  background: var(--color-tutoria) !important;
+  color: #2a2a2a !important;
+  animation: popColor 0.5s;
+}
+
+@keyframes popColor {
+  from {
+    transform: scale(0.96);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* Leyenda */
+.leyenda {
+  margin-top: 1.4rem;
+  font-size: 1rem;
+  color: var(--muted);
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+.leyenda-ico {
+  display: inline-block;
+  width: 1.2em;
+  height: 1.2em;
+  border-radius: 50%;
+  margin-right: 0.25em;
+  vertical-align: middle;
+}
+.leyenda-ico.recreo {
+  background: var(--recreo);
+}
+.leyenda-ico.feriado {
+  background: var(--feriado);
+}
+.leyenda-ico.ausente {
+  background: var(--ausente);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .horario-layout {
+    padding: 0.7rem 0.1rem 2rem 0.1rem;
+    border-radius: 0;
+  }
+  .tabla-horario {
+    min-width: 550px;
+  }
+}

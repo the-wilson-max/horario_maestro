@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Horario Profesor</title>
+    <link rel="stylesheet" href="estilos/registro.css" />
+    <link rel="stylesheet" href="css/horario.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="horario-layout">
+      <header class="horario-header">
+        <h1>Gestión de Horario de Profesores</h1>
+        <div class="horario-controls">
+          <label>
+            Turno:
+            <select id="turnoSelect">
+              <option value="mañana">Mañana</option>
+              <option value="tarde">Tarde</option>
+            </select>
+          </label>
+          <button id="exportPDF" class="btn-exportar">
+            <span class="material-icons">picture_as_pdf</span> Exportar PDF
+          </button>
+        </div>
+      </header>
+      <main>
+        <div class="tabla-horario-responsive">
+          <table class="tabla-horario" id="tablaHorario">
+            <thead>
+              <tr>
+                <th>Hora</th>
+                <th>Lunes</th>
+                <th>Martes</th>
+                <th>Miércoles</th>
+                <th>Jueves</th>
+                <th>Viernes</th>
+              </tr>
+            </thead>
+            <tbody id="horarioBody">
+              <!-- Aquí se genera dinámicamente el horario -->
+            </tbody>
+          </table>
+        </div>
+        <div class="leyenda">
+          <span class="leyenda-ico recreo"></span> Recreo
+          <span class="leyenda-ico feriado"></span> Feriado
+          <span class="leyenda-ico ausente"></span> Ausente
+        </div>
+      </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="supabaseClient.js"></script>
+    <script src="js/horario.js"></script>
+  </body>
+</html>
